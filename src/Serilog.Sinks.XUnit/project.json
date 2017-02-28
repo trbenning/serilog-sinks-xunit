@@ -10,8 +10,8 @@
             "xunit"
         ]
     },
-    "projectUrl": "http://tbd.net",
-    "licenseUrl": "http://tbd.net",
+    "projectUrl": "https://github.com/trbenning/serilog-sinks-xunit",
+    "licenseUrl": "https://github.com/trbenning/serilog-sinks-xunit/blob/master/LICENSE",
     "buildOptions": {
         "debugType": "portable"
     },
