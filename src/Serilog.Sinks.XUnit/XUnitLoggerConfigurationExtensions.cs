@@ -20,11 +20,10 @@ namespace Serilog
         /// <param name="testOutputHelper">The <see cref="Xunit.Abstractions.ITestOutputHelper"/> that will be written to.
         /// <param name="restrictedToMinimumLevel">The minimum level for
         /// events passed through the sink. Ignored when <paramref name="levelSwitch"/> is specified.</param>
-        /// <param name="levelSwitch">A switch allowing the pass-through minimum level
-        /// to be changed at runtime.</param>
         /// <param name="outputTemplate">A message template describing the format used to write to the sink.
         /// the default is "{Timestamp} [{Level}] {Message}{NewLine}{Exception}".</param>
         /// <param name="formatProvider">Supplies culture-specific formatting information, or null.</param>
+        /// <param name="levelSwitch">A switch allowing the pass-through minimum level to be changed at runtime.</param>
         /// <returns>Configuration object allowing method chaining.</returns>
         public static LoggerConfiguration TestOutput(
             this LoggerSinkConfiguration sinkConfiguration,

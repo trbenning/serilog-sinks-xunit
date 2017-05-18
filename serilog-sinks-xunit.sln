@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3BC5FFDD-0FC9-47E4-8C4E-81662BD307EC}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Serilog.Sinks.XUnit", "src\Serilog.Sinks.XUnit\Serilog.Sinks.XUnit.xproj", "{6A2DB647-2BE6-40FF-B2B3-3A97C1076A6D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{25D521E7-8018-4D27-B7D8-613D98616E49}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Serilog.Sinks.XUnit.Tests", "test\Serilog.Sinks.XUnit.Tests\Serilog.Sinks.XUnit.Tests.xproj", "{50B381F7-1801-498D-8948-28EE989FA221}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Sinks.XUnit", "src\Serilog.Sinks.XUnit\Serilog.Sinks.XUnit.csproj", "{6A2DB647-2BE6-40FF-B2B3-3A97C1076A6D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Sinks.XUnit.Tests", "test\Serilog.Sinks.XUnit.Tests\Serilog.Sinks.XUnit.Tests.csproj", "{50B381F7-1801-498D-8948-28EE989FA221}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
