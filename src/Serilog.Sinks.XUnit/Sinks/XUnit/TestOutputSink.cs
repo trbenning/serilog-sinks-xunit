@@ -14,14 +14,8 @@ namespace Serilog.Sinks.XUnit
 
         public TestOutputSink(ITestOutputHelper testOutputHelper, ITextFormatter textFormatter)
         {
-            if(testOutputHelper == null)
-                throw new ArgumentNullException(nameof(testOutputHelper));
-
-            if(textFormatter == null)
-                throw new ArgumentNullException(nameof(textFormatter));
-                
-            _testOutputHelper = testOutputHelper;
-            _textFormatter = textFormatter;
+            _testOutputHelper = testOutputHelper ?? throw new ArgumentNullException(nameof(testOutputHelper));
+            _textFormatter = textFormatter ?? throw new ArgumentNullException(nameof(textFormatter));
         }
 
         public void Emit(LogEvent logEvent)
