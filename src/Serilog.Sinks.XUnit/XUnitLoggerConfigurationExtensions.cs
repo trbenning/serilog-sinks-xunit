@@ -17,7 +17,7 @@ namespace Serilog
         /// Writes log events to <see cref="Xunit.Abstractions.ITestOutputHelper"/>.
         /// </summary>
         /// <param name="sinkConfiguration">Logger sink configuration.</param>
-        /// <param name="testOutputHelper">The <see cref="Xunit.Abstractions.ITestOutputHelper"/> that will be written to.
+        /// <param name="testOutputHelper">The <see cref="Xunit.Abstractions.ITestOutputHelper"/> that will be written to.</param>
         /// <param name="restrictedToMinimumLevel">The minimum level for
         /// events passed through the sink. Ignored when <paramref name="levelSwitch"/> is specified.</param>
         /// <param name="outputTemplate">A message template describing the format used to write to the sink.
@@ -48,7 +48,7 @@ namespace Serilog
         /// Writes log events to <see cref="Xunit.Abstractions.ITestOutputHelper"/>.
         /// </summary>
         /// <param name="sinkConfiguration">Logger sink configuration.</param>
-        /// <param name="testOutputHelper">The <see cref="Xunit.Abstractions.ITestOutputHelper"/> that will be written to.
+        /// <param name="testOutputHelper">The <see cref="Xunit.Abstractions.ITestOutputHelper"/> that will be written to.</param>
         /// <param name="formatter">Controls the rendering of log events into text, for example to log JSON. To
         /// control plain text formatting, use the overload that accepts an output template.</param>
         /// <param name="restrictedToMinimumLevel">The minimum level for

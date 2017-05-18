@@ -1,26 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>The xunit test output sink for Serilog</Description>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Description>The xUnit test output sink for Serilog</Description>
+    <PackageTags>logging Serilog xUnit output ITestOutputHelper</PackageTags>
+    <Copyright>Copyright 2017 Todd Benning</Copyright>
     <Authors>Todd Benning</Authors>
-    <TargetFrameworks>net45;netstandard1.3</TargetFrameworks>
-    <DebugType>portable</DebugType>
-    <AssemblyName>Serilog.Sinks.XUnit</AssemblyName>
-    <PackageId>Serilog.Sinks.XUnit</PackageId>
-    <PackageTags>serilog;xunit</PackageTags>
-    <PackageProjectUrl>https://github.com/trbenning/serilog-sinks-xunit</PackageProjectUrl>
+    <Company>Todd Benning</Company>
     <PackageLicenseUrl>https://github.com/trbenning/serilog-sinks-xunit/blob/master/LICENSE</PackageLicenseUrl>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <PackageProjectUrl>https://github.com/trbenning/serilog-sinks-xunit</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/trbenning/serilog-sinks-xunit</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD1_0</DefineConstants>
+    <OutputPath>bin\Debug\netstandard1.0\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Serilog" Version="2.4.0" />
     <PackageReference Include="xunit.abstractions" Version="2.0.1" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
 
 </Project>
