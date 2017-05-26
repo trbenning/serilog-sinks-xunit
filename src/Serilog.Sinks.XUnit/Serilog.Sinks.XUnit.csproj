@@ -5,7 +5,7 @@
     <VersionPrefix>1.0.4</VersionPrefix>
     <Authors>Todd Benning</Authors>
     <Company>Todd Benning</Company>
-    <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard1.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <AssemblyName>Serilog.Sinks.XUnit</AssemblyName>
