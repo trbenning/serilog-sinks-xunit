@@ -4,17 +4,17 @@ namespace Serilog.Sinks.XUnit.Tests
     using Xunit;
     using Xunit.Abstractions;
 
-    public class IntegrationTests
+    public class SampleUsage
     {
         readonly ILogger _output;
 
-        public IntegrationTests(ITestOutputHelper output)
+        public SampleUsage(ITestOutputHelper output)
         {
             // Pass the ITestOutputHelper object to the TestOutput sink
             _output = new LoggerConfiguration()
                 .WriteTo.TestOutput(output, Events.LogEventLevel.Verbose)
                 .CreateLogger()
-                .ForContext<IntegrationTests>();
+                .ForContext<SampleUsage>();
         }
 
         [Fact]
