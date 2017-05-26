@@ -1,0 +1,16 @@
+version: '{build}'
+skip_tags: true
+image: Visual Studio 2017
+configuration: Release
+build_script:
+- ps: ./Build.ps1
+test: off
+artifacts:
+- path: artifacts/Serilog.*.nupkg
+deploy:
+- provider: NuGet
+  api_key:
+    secure: S04qNJxjC3gTq0L0+aG2B4MvyFm+KXs01wVnEK75O0oI3tN6lXGS8h6jwHBWl13d
+  skip_symbols: true
+  on:
+    branch: /^(master|dev)$/

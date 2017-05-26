@@ -6,7 +6,7 @@ namespace Serilog.Sinks.XUnit.Tests
 
     public class IntegrationTests
     {
-        ILogger _output;
+        readonly ILogger _output;
 
         public IntegrationTests(ITestOutputHelper output)
         {
