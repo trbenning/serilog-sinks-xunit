@@ -1,21 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Description>The xUnit test output sink for Serilog</Description>
-    <PackageTags>logging Serilog xUnit output ITestOutputHelper</PackageTags>
-    <Copyright>Copyright © 2017 Todd Benning</Copyright>
+    <VersionPrefix>1.0.4</VersionPrefix>
     <Authors>Todd Benning</Authors>
     <Company>Todd Benning</Company>
+    <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <AssemblyName>Serilog.Sinks.XUnit</AssemblyName>
     <PackageId>Serilog.Sinks.XUnit</PackageId>
+    <PackageTags>logging Serilog xUnit output ITestOutputHelper</PackageTags>
+    <Copyright>Copyright © 2017 Todd Benning</Copyright>
     <PackageLicenseUrl>https://github.com/trbenning/serilog-sinks-xunit/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/trbenning/serilog-sinks-xunit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/trbenning/serilog-sinks-xunit</RepositoryUrl>
-    <VersionPrefix>1.0.1</VersionPrefix>
-    <AssemblyName>Serilog.Sinks.XUnit</AssemblyName>
-    <Version>1.0.3</Version>
-    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.0'">
