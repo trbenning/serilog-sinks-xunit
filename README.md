@@ -1,3 +1,6 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/fr73mublbmtku2ke?svg=true)](https://ci.appveyor.com/project/trbenning/serilog-sinks-xunit)
+[![NuGet Version](http://img.shields.io/nuget/v/Serilog.Sinks.XUnit.svg?style=flat)](https://www.nuget.org/packages/Serilog.Sinks.XUnit/)
+
 # serilog-sinks-xunit
 The xunit test output sink for Serilog
 
@@ -10,11 +13,11 @@ using System;
 using Xunit;
 using Xunit.Abstractions;
 
-public class IntegrationTests
+public class Samples
 {
     ILogger _output;
 
-    public IntegrationTests(ITestOutputHelper output)
+    public Samples(ITestOutputHelper output)
     {
         // Pass the ITestOutputHelper object to the TestOutput sink
         _output = new LoggerConfiguration()
