@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>The xUnit test output sink for Serilog</Description>
-    <VersionPrefix>1.0.4</VersionPrefix>
+    <VersionPrefix>1.0.5</VersionPrefix>
     <Authors>Todd Benning</Authors>
     <Company>Todd Benning</Company>
     <TargetFrameworks>net45;netstandard1.0</TargetFrameworks>
@@ -11,7 +11,7 @@
     <AssemblyName>Serilog.Sinks.XUnit</AssemblyName>
     <PackageId>Serilog.Sinks.XUnit</PackageId>
     <PackageTags>logging Serilog xUnit output ITestOutputHelper</PackageTags>
-    <Copyright>Copyright © 2017 Todd Benning</Copyright>
+    <Copyright>Copyright © 2018 Todd Benning</Copyright>
     <PackageLicenseUrl>https://github.com/trbenning/serilog-sinks-xunit/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/trbenning/serilog-sinks-xunit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/trbenning/serilog-sinks-xunit</RepositoryUrl>
@@ -34,7 +34,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Serilog" Version="2.4.0" />
+    <PackageReference Include="Serilog" Version="2.6.0" />
     <PackageReference Include="xunit.abstractions" Version="2.0.1" />
   </ItemGroup>
 
