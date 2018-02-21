@@ -24,23 +24,24 @@ foreach ($src in ls src/*) {
 
 	Write-Output "Build: Building project in $src"
 
-    if($buildSuffix -ne $NULL)
-    {
-        & dotnet build -c Release --version-suffix=$buildSuffix
-    }
-    else
+    if([string]::IsNullOrWhiteSpace($buildSuffix))
     {
         & dotnet build -c Release
     }
-
-    if($suffix -ne $NULL)
-    {
-        & dotnet pack -c Release --include-symbols -o ..\..\artifacts --version-suffix=$suffix --no-build
-    }
     else
+    {
+        & dotnet build -c Release --version-suffix=$buildSuffix
+    }
+
+    if([string]::IsNullOrWhiteSpace($suffix))
     {
         & dotnet pack -c Release --include-symbols -o ..\..\artifacts --no-build
     }
+    else
+    {
+        & dotnet pack -c Release --include-symbols -o ..\..\artifacts --version-suffix=$suffix --no-build
+    }
+
     if($LASTEXITCODE -ne 0) { exit 1 }    
 
     Pop-Location
