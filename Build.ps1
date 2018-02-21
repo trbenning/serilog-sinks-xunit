@@ -22,9 +22,17 @@ Write-Output "Build: Build version suffix is $buildSuffix"
 foreach ($src in ls src/*) {
     Push-Location $src
 
-	Write-Output "Build: Packaging project in $src"
+	Write-Output "Build: Building project in $src"
 
-    & dotnet build -c Release --version-suffix=$buildSuffix
+    if($buildSuffix -ne $NULL)
+    {
+        & dotnet build -c Release --version-suffix=$buildSuffix
+    }
+    else
+    {
+        & dotnet build -c Release
+    }
+
     if($suffix -ne $NULL)
     {
         & dotnet pack -c Release --include-symbols -o ..\..\artifacts --version-suffix=$suffix --no-build
@@ -33,7 +41,6 @@ foreach ($src in ls src/*) {
     {
         & dotnet pack -c Release --include-symbols -o ..\..\artifacts --no-build
     }
-
     if($LASTEXITCODE -ne 0) { exit 1 }    
 
     Pop-Location
