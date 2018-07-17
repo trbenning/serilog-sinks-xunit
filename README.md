@@ -21,6 +21,7 @@ public class Samples
     {
         // Pass the ITestOutputHelper object to the TestOutput sink
         _output = new LoggerConfiguration()
+            .MinimumLevel.Verbose()
             .WriteTo.TestOutput(output, Events.LogEventLevel.Verbose)
             .CreateLogger()
             .ForContext<IntegratoinTests>();
