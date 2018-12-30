@@ -14,7 +14,7 @@ namespace Serilog
     /// </summary>
     public static class TestOutputLoggerConfigurationExtensions
     {
-        const string _defaultConsoleOutputTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}";
+        internal const string DefaultConsoleOutputTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}";
 
         /// <summary>
         /// Writes log events to <see cref="ITestOutputHelper"/>.
@@ -32,7 +32,7 @@ namespace Serilog
             this LoggerSinkConfiguration sinkConfiguration,
             ITestOutputHelper testOutputHelper,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
-            string outputTemplate = _defaultConsoleOutputTemplate,
+            string outputTemplate = DefaultConsoleOutputTemplate,
             IFormatProvider formatProvider = null,
             LoggingLevelSwitch levelSwitch = null)
         {
@@ -73,6 +73,6 @@ namespace Serilog
                 throw new ArgumentNullException(nameof(formatter));
 
             return sinkConfiguration.Sink(new TestOutputSink(testOutputHelper, formatter), restrictedToMinimumLevel, levelSwitch);
-        }
+        }  
     }
 }
