@@ -37,7 +37,7 @@ namespace Serilog.Sinks.XUnit
             
             var renderSpace = new StringWriter();
             _textFormatter.Format(logEvent, renderSpace);
-            _testOutputHelper.WriteLine(renderSpace.ToString());
+            _testOutputHelper.WriteLine(renderSpace.ToString().Trim());
         }
     }
 }
