@@ -37,6 +37,18 @@
         }
 
         [Fact]
+        public static void CreateTestLogger_WithCustomMessageTemplateWithExtraNewline()
+        {
+            var outputMock = Substitute.For<ITestOutputHelper>();
+            var logger = outputMock.CreateTestLogger(outputTemplate: "Game of Thrones {Level}: {Message}{NewLine}{Exception}");
+
+            const string message = "That's what I do. I drink and I know things.";
+            logger.Warning(message);
+
+            outputMock.Received(1).WriteLine(Arg.Is<string>(text => text.Equals($"Game of Thrones Warning: {message}")));
+        }
+
+        [Fact]
         public static void CreateTestLogger_WithCustomMinimumLogLevel()
         {
             var outputMock = Substitute.For<ITestOutputHelper>();
