@@ -24,7 +24,7 @@ public class Samples
             .MinimumLevel.Verbose()
             .WriteTo.TestOutput(output, Events.LogEventLevel.Verbose)
             .CreateLogger()
-            .ForContext<IntegratoinTests>();
+            .ForContext<IntegrationTests>();
     }
 
     [Fact]
