@@ -7,6 +7,12 @@ The xunit test output sink for Serilog
 ### What is it?
 It's a package that will allow you to use Serilog for test output.
 
+### Installation
+
+```
+Install-Package Serilog.Sink.XUnit
+```
+
 ### Example usage
 ```csharp
 using System;
