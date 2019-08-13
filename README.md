@@ -10,7 +10,7 @@ It's a package that will allow you to use Serilog for test output.
 ### Installation
 
 ```
-Install-Package Serilog.Sink.XUnit
+Install-Package Serilog.Sinks.XUnit
 ```
 
 ### Example usage
