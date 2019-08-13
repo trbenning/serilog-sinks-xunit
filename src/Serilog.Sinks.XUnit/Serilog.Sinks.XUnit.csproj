@@ -2,35 +2,19 @@
 
   <PropertyGroup>
     <Description>The xUnit test output sink for Serilog</Description>
-    <VersionPrefix>1.0.8</VersionPrefix>
-    <Authors>Todd Benning</Authors>
-    <Company>Todd Benning</Company>
-    <TargetFrameworks>net45;netstandard1.0</TargetFrameworks>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <VersionPrefix Condition="'$(BUILD_BUILDNUMBER)' == ''">1.0.0</VersionPrefix>
+    <VersionPrefix Condition="'$(BUILD_BUILDNUMBER)' != ''">$(BUILD_BUILDNUMBER)</VersionPrefix>
     <AssemblyName>Serilog.Sinks.XUnit</AssemblyName>
     <PackageId>Serilog.Sinks.XUnit</PackageId>
     <PackageTags>logging Serilog xUnit output ITestOutputHelper</PackageTags>
-    <Copyright>Copyright © 2018 Todd Benning</Copyright>
+    <Copyright>Copyright © 2017 Todd Benning</Copyright>
+    <Authors>Todd Benning</Authors>
+    <TargetFrameworks>net45;netstandard1.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseUrl>https://github.com/trbenning/serilog-sinks-xunit/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/trbenning/serilog-sinks-xunit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/trbenning/serilog-sinks-xunit</RepositoryUrl>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.0'">
-    <DefineConstants>$(DefineConstants);NETSTANDARD1_0</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net45'">
-    <DefineConstants>$(DefineConstants);NET45</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.0|AnyCPU'">
-    <OutputPath>bin\Debug\</OutputPath>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>

@@ -19,7 +19,7 @@ namespace Serilog.Sinks.XUnit.Tests
         }
 
         [Fact]
-        [Trait("Category", "Integration")]
+        [Trait("Category", "Sample")]
         public void ExampleUsage()
         {
             // Use ILogger as you normally would. These messages will show up in the test output
@@ -33,7 +33,7 @@ namespace Serilog.Sinks.XUnit.Tests
         }
 
         [Fact]
-        [Trait("Category", "Integration")]
+        [Trait("Category", "Sample")]
         public void VerifyDebugLevelOutput()
         {
             _log.Debug("Test output to Serilog!");
@@ -41,7 +41,7 @@ namespace Serilog.Sinks.XUnit.Tests
         }
 
         [Fact]
-        [Trait("Category", "Integration")]
+        [Trait("Category", "Sample")]
         public void VerifyVerboseLevelOutput()
         {
             _log.Verbose("Test output to Serilog!");

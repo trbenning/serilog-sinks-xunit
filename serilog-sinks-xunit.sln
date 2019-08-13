@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3BC5FFDD-0FC9-47E4-8C4E-81662BD307EC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{25D521E7-8018-4D27-B7D8-613D98616E49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.XUnit", "src\Serilog.Sinks.XUnit\Serilog.Sinks.XUnit.csproj", "{5B84BDCD-C15C-4FF4-9694-39A4B3794AE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Sinks.XUnit", "src\Serilog.Sinks.XUnit\Serilog.Sinks.XUnit.csproj", "{5B84BDCD-C15C-4FF4-9694-39A4B3794AE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.XUnit.Tests", "test\Serilog.Sinks.XUnit.Tests\Serilog.Sinks.XUnit.Tests.csproj", "{7F5A7AF6-9B88-421E-932C-930105461392}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Sinks.XUnit.Tests", "test\Serilog.Sinks.XUnit.Tests\Serilog.Sinks.XUnit.Tests.csproj", "{7F5A7AF6-9B88-421E-932C-930105461392}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F9AF5931-719F-435F-8385-F9D92AF58306}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		appveyor.yml = appveyor.yml
-		Build.ps1 = Build.ps1
+		azure-pipelines.yml = azure-pipelines.yml
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
@@ -43,5 +43,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5B84BDCD-C15C-4FF4-9694-39A4B3794AE1} = {3BC5FFDD-0FC9-47E4-8C4E-81662BD307EC}
 		{7F5A7AF6-9B88-421E-932C-930105461392} = {25D521E7-8018-4D27-B7D8-613D98616E49}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F38B9487-3E48-4839-BB06-72B0E99ECDFA}
 	EndGlobalSection
 EndGlobal

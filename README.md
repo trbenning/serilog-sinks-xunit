@@ -1,5 +1,5 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/fr73mublbmtku2ke?svg=true)](https://ci.appveyor.com/project/trbenning/serilog-sinks-xunit)
-[![NuGet Version](http://img.shields.io/nuget/v/Serilog.Sinks.XUnit.svg?style=flat)](https://www.nuget.org/packages/Serilog.Sinks.XUnit/)
+[![Build Status](https://dev.azure.com/benning/Serilog.Sinks.XUnit/_apis/build/status/trbenning.serilog-sinks-xunit?branchName=master)](https://dev.azure.com/benning/Serilog.Sinks.XUnit/_build/latest?definitionId=2&branchName=master)
+[![NuGet Version](https://img.shields.io/nuget/v/Serilog.Sinks.XUnit.svg?style=flat)](https://www.nuget.org/packages/Serilog.Sinks.XUnit/)
 
 # serilog-sinks-xunit
 The xunit test output sink for Serilog

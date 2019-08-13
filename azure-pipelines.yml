@@ -1,0 +1,70 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+name: 1.0$(rev:.r)
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - src/*
+
+pr:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+  verbosity: 'Normal'
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Restore Dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+    verbosityRestore: $(verbosity)
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit Tests'
+  condition: succeeded()
+  inputs:
+    command: test
+    projects: 'test/**/*.csproj'
+    arguments: '--configuration $(BuildConfiguration) --verbosity $(verbosity) --filter "Category!=Sample" --collect "Code Coverage" --settings "CodeCoverage.runsettings"'
+    publishTestResults: true
+    
+- task: DotNetCoreCLI@2
+  displayName: 'Build All Projects (master)'
+  inputs:
+    command: build
+    projects: 'src/**/*.csproj'
+    arguments: '--configuration $(BuildConfiguration) --verbosity $(verbosity)'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+- task: DotNetCoreCLI@2
+  displayName: 'Create NuGet Packages'
+  inputs:
+    command: 'pack'
+    packagesToPack: 'src/**/*.csproj'
+    includesymbols: true
+    includesource: true
+    versioningScheme: 'byBuildNumber'
+    verbosityPack: $(verbosity)
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish NuGet Packages'
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'NuGet'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
