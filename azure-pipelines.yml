@@ -13,9 +13,6 @@ trigger:
     include:
     - src/*
 
-pr:
-- master
-
 pool:
   vmImage: 'windows-latest'
 
