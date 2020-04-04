@@ -1,21 +1,46 @@
+using System.Threading.Tasks;
+
 namespace Serilog.Sinks.XUnit.Tests
 {
     using System;
     using Xunit;
     using Xunit.Abstractions;
 
-    public class Samples
+    public sealed class SampleTests : IDisposable, IAsyncLifetime, IClassFixture<SampleFixture>
     {
-        readonly ILogger _log;
+        private readonly ILogger _log;
 
-        public Samples(ITestOutputHelper output)
+        public SampleTests(SampleFixture fixture, ITestOutputHelper output)
         {
             // Pass the ITestOutputHelper object to the TestOutput sink
             _log = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
                 .WriteTo.TestOutput(output, Events.LogEventLevel.Verbose)
                 .CreateLogger()
-                .ForContext<Samples>();
+                .ForContext<SampleTests>();
+
+            _log.Information("Sample test constructor called.");
+            // Check the test output window. You should see the above message.
+        }
+
+        public void Dispose()
+        {
+            _log.Information("Sample test dispose called.");
+            // Check the test output window. You should see the above message.
+        }
+
+        public Task InitializeAsync()
+        {
+            _log.Information("Sample test initialize async called.");
+            // Check the test output window. You should see the above message.
+            return Task.CompletedTask;
+        }
+
+        public Task DisposeAsync()
+        {
+            _log.Information("Sample test dispose async called.");
+            // Check the test output window. You should see the above message.
+            return Task.CompletedTask;
         }
 
         [Fact]
