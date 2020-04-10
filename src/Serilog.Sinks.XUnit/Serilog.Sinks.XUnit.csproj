@@ -9,7 +9,7 @@
     <PackageTags>logging Serilog xUnit output ITestOutputHelper</PackageTags>
     <Copyright>Copyright © 2017 Todd Benning</Copyright>
     <Authors>Todd Benning</Authors>
-    <TargetFrameworks>net45;netstandard1.0</TargetFrameworks>
+    <TargetFrameworks>net452;netstandard1.1</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseUrl>https://github.com/trbenning/serilog-sinks-xunit/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/trbenning/serilog-sinks-xunit</PackageProjectUrl>
@@ -18,8 +18,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Serilog" Version="2.6.0" />
-    <PackageReference Include="xunit.abstractions" Version="2.0.1" />
+    <PackageReference Include="Serilog" Version="2.9.0" />
+    <PackageReference Include="xunit.abstractions" Version="2.0.3" />
+    <PackageReference Include="xunit.core" Version="2.4.1" />
   </ItemGroup>
 
 </Project>

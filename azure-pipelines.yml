@@ -3,7 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-name: 1.0$(rev:.r)
+name: 2.0$(rev:.r)
 
 trigger:
   branches:
@@ -36,9 +36,9 @@ steps:
   inputs:
     command: test
     projects: 'test/**/*.csproj'
-    arguments: '--configuration $(BuildConfiguration) --verbosity $(verbosity) --filter "Category!=Sample" --collect "Code Coverage" --settings "CodeCoverage.runsettings"'
+    arguments: '--configuration $(BuildConfiguration) --verbosity $(verbosity) --filter "Category!=Sample" --collect "Code Coverage" --settings "test/Serilog.Sinks.XUnit.Tests/CodeCoverage.runsettings"'
     publishTestResults: true
-    
+
 - task: DotNetCoreCLI@2
   displayName: 'Build All Projects (master)'
   inputs:
