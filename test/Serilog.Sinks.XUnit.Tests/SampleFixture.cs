@@ -1,10 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using Xunit;
-using Xunit.Abstractions;
-
-namespace Serilog.Sinks.XUnit.Tests
+﻿namespace Serilog.Sinks.XUnit.Tests
 {
+    using System;
+    using System.Threading.Tasks;
+    using Xunit;
+    using Xunit.Abstractions;
+
     public sealed class SampleFixture : IDisposable, IAsyncLifetime
     {
         private readonly ILogger _log;

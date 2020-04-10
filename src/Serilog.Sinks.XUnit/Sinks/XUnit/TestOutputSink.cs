@@ -1,5 +1,3 @@
-using Xunit.Sdk;
-
 namespace Serilog.Sinks.XUnit
 {
     using System;
@@ -7,8 +5,8 @@ namespace Serilog.Sinks.XUnit
     using Core;
     using Events;
     using Formatting;
-    using Xunit;
     using Xunit.Abstractions;
+    using Xunit.Sdk;
 
     /// <summary>
     /// A sink to direct Serilog output to the XUnit test output

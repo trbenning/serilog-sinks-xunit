@@ -1,16 +1,14 @@
-﻿using Xunit.Sdk;
-
-namespace Serilog.Sinks.XUnit.Tests
+﻿namespace Serilog.Sinks.XUnit.Tests
 {
-    using FluentAssertions;
-    using NSubstitute;
-    using Events;
-    using Formatting;
-    using Parsing;
     using System;
     using System.IO;
+    using Events;
+    using FluentAssertions;
+    using Formatting;
+    using NSubstitute;
     using Xunit;
     using Xunit.Abstractions;
+    using Xunit.Sdk;
 
     public class TestOutputSinkTests
     {
