@@ -11,7 +11,8 @@
     <Authors>Todd Benning</Authors>
     <TargetFrameworks>net452;netstandard1.1</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <PackageLicenseUrl>https://github.com/trbenning/serilog-sinks-xunit/blob/master/LICENSE</PackageLicenseUrl>
+    <IsPackable>true</IsPackable>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/trbenning/serilog-sinks-xunit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/trbenning/serilog-sinks-xunit</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
