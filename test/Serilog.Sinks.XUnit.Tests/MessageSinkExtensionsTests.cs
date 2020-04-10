@@ -4,9 +4,9 @@ namespace Serilog.Sinks.XUnit.Tests
 {
     using FluentAssertions;
     using NSubstitute;
-    using Serilog.Events;
-    using Serilog.Core;
-    using Serilog.Formatting;
+    using Events;
+    using Core;
+    using Formatting;
     using System;
     using System.IO;
     using Xunit;
@@ -60,7 +60,7 @@ namespace Serilog.Sinks.XUnit.Tests
             logger.Debug(message);
             logger.Information(message);
             logger.Warning(message);
-            
+
             outputMock.DidNotReceive().OnMessage(Arg.Any<DiagnosticMessage>());
         }
 
@@ -93,7 +93,7 @@ namespace Serilog.Sinks.XUnit.Tests
 
             const string message = "Baz";
             logger.Error(message);
-            
+
             textFormatter.Received(1).Format(
                 Arg.Is<LogEvent>(logEvent => logEvent.Level == LogEventLevel.Error && logEvent.MessageTemplate.Text == message),
                 Arg.Any<StringWriter>());
@@ -105,7 +105,7 @@ namespace Serilog.Sinks.XUnit.Tests
             Action act = () => default(IMessageSink).CreateTestLogger();
 
             act.Should().Throw<ArgumentNullException>()
-               .And.ParamName.Should().Be("messageSink");
+                .And.ParamName.Should().Be("messageSink");
         }
 
         [Fact]
@@ -114,7 +114,7 @@ namespace Serilog.Sinks.XUnit.Tests
             Action act = () => Substitute.For<IMessageSink>().CreateTestLogger(default(ITextFormatter));
 
             act.Should().Throw<ArgumentNullException>()
-               .And.ParamName.Should().Be("formatter");
+                .And.ParamName.Should().Be("formatter");
         }
     }
 }

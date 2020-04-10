@@ -1,9 +1,9 @@
 ﻿namespace Serilog
 {
     using System;
-    using Serilog.Core;
-    using Serilog.Events;
-    using Serilog.Formatting;
+    using Core;
+    using Events;
+    using Formatting;
     using Xunit.Abstractions;
 
     /// <summary>
@@ -32,13 +32,13 @@
             LoggingLevelSwitch levelSwitch = null)
         {
             return new LoggerConfiguration()
-                  .WriteTo.TestOutput(
-                      messageSink,
-                       restrictedToMinimumLevel,
-                       outputTemplate,
-                       formatProvider,
-                       levelSwitch)
-                  .CreateLogger();
+                .WriteTo.TestOutput(
+                    messageSink,
+                    restrictedToMinimumLevel,
+                    outputTemplate,
+                    formatProvider,
+                    levelSwitch)
+                .CreateLogger();
         }
 
         /// <summary>
@@ -61,12 +61,12 @@
             LoggingLevelSwitch levelSwitch = null)
         {
             return new LoggerConfiguration()
-                  .WriteTo.TestOutput(
-                      messageSink,
-                       formatter,
-                       restrictedToMinimumLevel,
-                       levelSwitch)
-                  .CreateLogger();
+                .WriteTo.TestOutput(
+                    messageSink,
+                    formatter,
+                    restrictedToMinimumLevel,
+                    levelSwitch)
+                .CreateLogger();
         }
     }
 }

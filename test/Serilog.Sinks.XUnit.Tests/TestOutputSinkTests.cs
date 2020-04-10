@@ -4,9 +4,9 @@ namespace Serilog.Sinks.XUnit.Tests
 {
     using FluentAssertions;
     using NSubstitute;
-    using Serilog.Events;
-    using Serilog.Formatting;
-    using Serilog.Parsing;
+    using Events;
+    using Formatting;
+    using Parsing;
     using System;
     using System.IO;
     using Xunit;
@@ -109,7 +109,7 @@ namespace Serilog.Sinks.XUnit.Tests
 
             var logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
-                .WriteTo.TestOutput(outputHelper, formatter, restrictedToMinimumLevel: minLevel)
+                .WriteTo.TestOutput(outputHelper, formatter, minLevel)
                 .CreateLogger();
 
             const string message = "Hello";
@@ -133,7 +133,7 @@ namespace Serilog.Sinks.XUnit.Tests
 
             var logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
-                .WriteTo.TestOutput(outputHelper, formatter, restrictedToMinimumLevel: LogEventLevel.Debug)
+                .WriteTo.TestOutput(outputHelper, formatter, LogEventLevel.Debug)
                 .CreateLogger();
 
             const string message = "Hello";

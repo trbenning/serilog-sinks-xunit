@@ -2,9 +2,9 @@
 {
     using FluentAssertions;
     using NSubstitute;
-    using Serilog.Events;
-    using Serilog.Core;
-    using Serilog.Formatting;
+    using Events;
+    using Core;
+    using Formatting;
     using System;
     using System.IO;
     using Xunit;
@@ -58,7 +58,7 @@
             logger.Debug(message);
             logger.Information(message);
             logger.Warning(message);
-            
+
             outputMock.DidNotReceive().WriteLine(Arg.Any<string>());
         }
 
@@ -91,7 +91,7 @@
 
             const string message = "Baz";
             logger.Error(message);
-            
+
             textFormatter.Received(1).Format(
                 Arg.Is<LogEvent>(logEvent => logEvent.Level == LogEventLevel.Error && logEvent.MessageTemplate.Text == message),
                 Arg.Any<StringWriter>());
@@ -103,7 +103,7 @@
             Action act = () => default(ITestOutputHelper).CreateTestLogger();
 
             act.Should().Throw<ArgumentNullException>()
-               .And.ParamName.Should().Be("testOutputHelper");
+                .And.ParamName.Should().Be("testOutputHelper");
         }
 
         [Fact]
@@ -112,7 +112,7 @@
             Action act = () => Substitute.For<ITestOutputHelper>().CreateTestLogger(default(ITextFormatter));
 
             act.Should().Throw<ArgumentNullException>()
-               .And.ParamName.Should().Be("formatter");
+                .And.ParamName.Should().Be("formatter");
         }
     }
 }

@@ -4,9 +4,9 @@ namespace Serilog.Sinks.XUnit
 {
     using System;
     using System.IO;
-    using Serilog.Core;
-    using Serilog.Events;
-    using Serilog.Formatting;
+    using Core;
+    using Events;
+    using Formatting;
     using Xunit;
     using Xunit.Abstractions;
 
@@ -15,9 +15,9 @@ namespace Serilog.Sinks.XUnit
     /// </summary>
     public class TestOutputSink : ILogEventSink
     {
-        readonly IMessageSink _messageSink;
-        readonly ITestOutputHelper _testOutputHelper;
-        readonly ITextFormatter _textFormatter;
+        private readonly IMessageSink _messageSink;
+        private readonly ITestOutputHelper _testOutputHelper;
+        private readonly ITextFormatter _textFormatter;
 
         /// <summary>
         /// Creates a new instance of <see cref="TestOutputSink"/>
@@ -47,8 +47,7 @@ namespace Serilog.Sinks.XUnit
         /// <param name="logEvent">The event being logged</param>
         public void Emit(LogEvent logEvent)
         {
-            if(logEvent == null)
-                throw new ArgumentNullException(nameof(logEvent));
+            if (logEvent == null) throw new ArgumentNullException(nameof(logEvent));
 
             var renderSpace = new StringWriter();
             _textFormatter.Format(logEvent, renderSpace);

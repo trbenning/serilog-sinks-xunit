@@ -1,12 +1,12 @@
 namespace Serilog
 {
     using System;
-    using Serilog.Configuration;
-    using Serilog.Core;
-    using Serilog.Events;
-    using Serilog.Formatting;
-    using Serilog.Formatting.Display;
-    using Serilog.Sinks.XUnit;
+    using Configuration;
+    using Core;
+    using Events;
+    using Formatting;
+    using Formatting.Display;
+    using Sinks.XUnit;
     using Xunit.Abstractions;
 
     /// <summary>
@@ -36,11 +36,8 @@ namespace Serilog
             IFormatProvider formatProvider = null,
             LoggingLevelSwitch levelSwitch = null)
         {
-            if(sinkConfiguration == null)
-                throw new ArgumentNullException(nameof(sinkConfiguration));
-
-            if(messageSink == null)
-                throw new ArgumentNullException(nameof(messageSink));
+            if (sinkConfiguration == null) throw new ArgumentNullException(nameof(sinkConfiguration));
+            if (messageSink == null) throw new ArgumentNullException(nameof(messageSink));
 
             var formatter = new MessageTemplateTextFormatter(outputTemplate, formatProvider);
 
@@ -66,11 +63,8 @@ namespace Serilog
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             LoggingLevelSwitch levelSwitch = null)
         {
-            if(sinkConfiguration == null)
-                throw new ArgumentNullException(nameof(sinkConfiguration));
-
-            if(formatter == null)
-                throw new ArgumentNullException(nameof(formatter));
+            if (sinkConfiguration == null) throw new ArgumentNullException(nameof(sinkConfiguration));
+            if (formatter == null) throw new ArgumentNullException(nameof(formatter));
 
             return sinkConfiguration.Sink(new TestOutputSink(messageSink, formatter), restrictedToMinimumLevel, levelSwitch);
         }
@@ -95,12 +89,9 @@ namespace Serilog
             IFormatProvider formatProvider = null,
             LoggingLevelSwitch levelSwitch = null)
         {
-            if(sinkConfiguration == null)
-                throw new ArgumentNullException(nameof(sinkConfiguration));
-            
-            if(testOutputHelper == null)
-                throw new ArgumentNullException(nameof(testOutputHelper));
-            
+            if (sinkConfiguration == null) throw new ArgumentNullException(nameof(sinkConfiguration));
+            if (testOutputHelper == null) throw new ArgumentNullException(nameof(testOutputHelper));
+
             var formatter = new MessageTemplateTextFormatter(outputTemplate, formatProvider);
 
             return sinkConfiguration.Sink(new TestOutputSink(testOutputHelper, formatter), restrictedToMinimumLevel, levelSwitch);
@@ -125,13 +116,10 @@ namespace Serilog
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             LoggingLevelSwitch levelSwitch = null)
         {
-            if(sinkConfiguration == null)
-                throw new ArgumentNullException(nameof(sinkConfiguration));
-            
-            if(formatter == null)
-                throw new ArgumentNullException(nameof(formatter));
+            if (sinkConfiguration == null) throw new ArgumentNullException(nameof(sinkConfiguration));
+            if (formatter == null) throw new ArgumentNullException(nameof(formatter));
 
             return sinkConfiguration.Sink(new TestOutputSink(testOutputHelper, formatter), restrictedToMinimumLevel, levelSwitch);
-        }  
+        }
     }
 }
