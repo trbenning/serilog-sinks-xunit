@@ -16,6 +16,8 @@
     <PackageProjectUrl>https://github.com/trbenning/serilog-sinks-xunit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/trbenning/serilog-sinks-xunit</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>../../key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
