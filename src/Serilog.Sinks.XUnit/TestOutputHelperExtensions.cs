@@ -19,7 +19,7 @@
         /// <param name="restrictedToMinimumLevel">The minimum level for
         /// events passed through the sink. Ignored when <paramref name="levelSwitch"/> is specified.</param>
         /// <param name="outputTemplate">A message template describing the format used to write to the sink.
-        /// the default is "{Timestamp} [{Level}] {Message}{NewLine}{Exception}".</param>
+        /// the default is "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}".</param>
         /// <param name="formatProvider">Supplies culture-specific formatting information, or null.</param>
         /// <param name="levelSwitch">A switch allowing the pass-through minimum level to be changed at runtime.</param>
         /// <returns>The Serilog logger that logs to <paramref name="testOutputHelper"/>.</returns>
