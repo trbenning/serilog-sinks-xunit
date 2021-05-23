@@ -22,7 +22,7 @@
             const string message = "This is a test message";
             logger.Information(message);
 
-            outputMock.Received(1).OnMessage(Arg.Is<DiagnosticMessage>(dm => dm.Message.Contains($"[Information] {message}")));
+            outputMock.Received(1).OnMessage(Arg.Is<DiagnosticMessage>(dm => dm.Message.Contains($" INF] {message}")));
         }
 
         [Fact]
