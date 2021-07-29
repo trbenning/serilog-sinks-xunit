@@ -7,36 +7,35 @@
     using Formatting;
     using NSubstitute;
     using Xunit;
-    using Xunit.Abstractions;
-    using Xunit.Sdk;
+    using Xunit.v3;
 
     public class TestOutputSinkTests
     {
         [Fact]
         public void Constructor_ForMessageSink_ShouldThrowIfMessageSinkIsNull()
         {
-            var ex = Record.Exception(() => new TestOutputSink((IMessageSink)null, Substitute.For<ITextFormatter>()));
+            var ex = Record.Exception(() => new TestOutputSink((_IMessageSink)null, Substitute.For<ITextFormatter>()));
             ex.Should().BeOfType<ArgumentNullException>();
         }
 
         [Fact]
         public void Constructor_ForMessageSink_ShouldThrowIfTextFormatterIsNull()
         {
-            var ex = Record.Exception(() => new TestOutputSink(Substitute.For<IMessageSink>(), null));
+            var ex = Record.Exception(() => new TestOutputSink(Substitute.For<_IMessageSink>(), null));
             ex.Should().BeOfType<ArgumentNullException>();
         }
 
         [Fact]
         public void Constructor_ForTestOutputHelper_ShouldThrowIfTestOutputHelperIsNull()
         {
-            var ex = Record.Exception(() => new TestOutputSink((ITestOutputHelper)null, Substitute.For<ITextFormatter>()));
+            var ex = Record.Exception(() => new TestOutputSink((_ITestOutputHelper)null, Substitute.For<ITextFormatter>()));
             ex.Should().BeOfType<ArgumentNullException>();
         }
 
         [Fact]
         public void Constructor_ForTestOutputHelper_ShouldThrowIfTextFormatterIsNull()
         {
-            var ex = Record.Exception(() => new TestOutputSink(Substitute.For<ITestOutputHelper>(), null));
+            var ex = Record.Exception(() => new TestOutputSink(Substitute.For<_ITestOutputHelper>(), null));
             ex.Should().BeOfType<ArgumentNullException>();
         }
 
@@ -44,7 +43,7 @@
         public void Emit_ShouldThrowIfEventIsNull()
         {
             var underTest = new TestOutputSink(
-                Substitute.For<ITestOutputHelper>(),
+                Substitute.For<_ITestOutputHelper>(),
                 Substitute.For<ITextFormatter>());
 
             var ex = Record.Exception(() => underTest.Emit(null));
@@ -55,7 +54,7 @@
         [Fact]
         public void Emit_ForMessageSink_ShouldWriteFormattedEventToTestOutput()
         {
-            var messageSink = Substitute.For<IMessageSink>();
+            var messageSink = Substitute.For<_IMessageSink>();
             var formatter = Substitute.For<ITextFormatter>();
 
             var logger = new LoggerConfiguration()
@@ -66,7 +65,7 @@
             const string message = "Hello";
             logger.Information(message);
 
-            messageSink.Received(1).OnMessage(Arg.Any<DiagnosticMessage>());
+            messageSink.Received(1).OnMessage(Arg.Any<_DiagnosticMessage>());
 
             formatter.Received(1).Format(
                 Arg.Is<LogEvent>(ev => ev.Level == LogEventLevel.Information && ev.MessageTemplate.Text == message),
@@ -76,7 +75,7 @@
         [Fact]
         public void Emit_ForTestOutputHelper_ShouldWriteFormattedEventToTestOutput()
         {
-            var outputHelper = Substitute.For<ITestOutputHelper>();
+            var outputHelper = Substitute.For<_ITestOutputHelper>();
             var formatter = Substitute.For<ITextFormatter>();
 
             var logger = new LoggerConfiguration()
@@ -102,7 +101,7 @@
         [InlineData(LogEventLevel.Fatal, new[] { LogEventLevel.Verbose, LogEventLevel.Debug, LogEventLevel.Information, LogEventLevel.Warning, LogEventLevel.Error })]
         public void Emit_ShouldHonorTheRestrictedToMinimumLevelParameter(LogEventLevel minLevel, LogEventLevel[] levelsToWrite)
         {
-            var outputHelper = Substitute.For<ITestOutputHelper>();
+            var outputHelper = Substitute.For<_ITestOutputHelper>();
             var formatter = Substitute.For<ITextFormatter>();
 
             var logger = new LoggerConfiguration()
@@ -126,7 +125,7 @@
         [Fact]
         public void Emit_ShouldWriteDebugEventWhenMinimumLevelSetToDebug()
         {
-            var outputHelper = Substitute.For<ITestOutputHelper>();
+            var outputHelper = Substitute.For<_ITestOutputHelper>();
             var formatter = Substitute.For<ITextFormatter>();
 
             var logger = new LoggerConfiguration()

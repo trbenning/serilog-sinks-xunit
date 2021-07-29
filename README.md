@@ -23,9 +23,9 @@ public class Samples
 {
     ILogger _output;
 
-    public Samples(ITestOutputHelper output)
+    public Samples(_ITestOutputHelper output)
     {
-        // Pass the ITestOutputHelper object to the TestOutput sink
+        // Pass the _ITestOutputHelper object to the TestOutput sink
         _output = new LoggerConfiguration()
             .MinimumLevel.Verbose()
             .WriteTo.TestOutput(output, Events.LogEventLevel.Verbose)

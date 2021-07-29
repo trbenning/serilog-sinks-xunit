@@ -8,14 +8,14 @@
     using Formatting;
     using NSubstitute;
     using Xunit;
-    using Xunit.Abstractions;
+    using Xunit.v3;
 
     public static class TestOutputHelperExtensionsTests
     {
         [Fact]
         public static void CreateTestLogger_WithDefaultParameters()
         {
-            var outputMock = Substitute.For<ITestOutputHelper>();
+            var outputMock = Substitute.For<_ITestOutputHelper>();
             var logger = outputMock.CreateTestLogger();
 
             const string message = "This is a test message";
@@ -27,7 +27,7 @@
         [Fact]
         public static void CreateTestLogger_WithCustomMessageTemplate()
         {
-            var outputMock = Substitute.For<ITestOutputHelper>();
+            var outputMock = Substitute.For<_ITestOutputHelper>();
             var logger = outputMock.CreateTestLogger(outputTemplate: "Game of Thrones {Level}: {Message}");
 
             const string message = "That's what I do. I drink and I know things.";
@@ -39,7 +39,7 @@
         [Fact]
         public static void CreateTestLogger_WithCustomMessageTemplateWithExtraNewline()
         {
-            var outputMock = Substitute.For<ITestOutputHelper>();
+            var outputMock = Substitute.For<_ITestOutputHelper>();
             var logger = outputMock.CreateTestLogger(outputTemplate: "Game of Thrones {Level}: {Message}{NewLine}{Exception}");
 
             const string message = "That's what I do. I drink and I know things.";
@@ -51,7 +51,7 @@
         [Fact]
         public static void CreateTestLogger_WithCustomMinimumLogLevel()
         {
-            var outputMock = Substitute.For<ITestOutputHelper>();
+            var outputMock = Substitute.For<_ITestOutputHelper>();
             var logger = outputMock.CreateTestLogger(LogEventLevel.Error);
 
             const string message = "Foo";
@@ -65,7 +65,7 @@
         [Fact]
         public static void CreateTestLogger_WithCustomSwitch()
         {
-            var outputMock = Substitute.For<ITestOutputHelper>();
+            var outputMock = Substitute.For<_ITestOutputHelper>();
             var levelSwitch = new LoggingLevelSwitch(LogEventLevel.Warning);
             var logger = outputMock.CreateTestLogger(levelSwitch: levelSwitch);
 
@@ -85,7 +85,7 @@
         [Fact]
         public static void CreateTestLogger_WithCustomTextFormatter()
         {
-            var outputMock = Substitute.For<ITestOutputHelper>();
+            var outputMock = Substitute.For<_ITestOutputHelper>();
             var textFormatter = Substitute.For<ITextFormatter>();
             var logger = outputMock.CreateTestLogger(textFormatter);
 
@@ -100,7 +100,7 @@
         [Fact]
         public static void CreateTestLogger_ShouldThrowIfTestOutputHelperIsNull()
         {
-            Action act = () => default(ITestOutputHelper).CreateTestLogger();
+            Action act = () => default(_ITestOutputHelper).CreateTestLogger();
 
             act.Should().Throw<ArgumentNullException>()
                 .And.ParamName.Should().Be("testOutputHelper");
@@ -109,7 +109,7 @@
         [Fact]
         public static void CreateTestLogger_ShouldThrowIfFormatterIsNull()
         {
-            Action act = () => Substitute.For<ITestOutputHelper>().CreateTestLogger(default(ITextFormatter));
+            Action act = () => Substitute.For<_ITestOutputHelper>().CreateTestLogger(default(ITextFormatter));
 
             act.Should().Throw<ArgumentNullException>()
                 .And.ParamName.Should().Be("formatter");
