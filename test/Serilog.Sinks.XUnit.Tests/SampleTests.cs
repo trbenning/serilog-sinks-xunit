@@ -3,15 +3,15 @@ namespace Serilog.Sinks.XUnit.Tests
     using System;
     using System.Threading.Tasks;
     using Xunit;
-    using Xunit.Abstractions;
+    using Xunit.v3;
 
     public sealed class SampleTests : IDisposable, IAsyncLifetime, IClassFixture<SampleFixture>
     {
         private readonly ILogger _log;
 
-        public SampleTests(SampleFixture fixture, ITestOutputHelper output)
+        public SampleTests(SampleFixture fixture, _ITestOutputHelper output)
         {
-            // Pass the ITestOutputHelper object to the TestOutput sink
+            // Pass the _ITestOutputHelper object to the TestOutput sink
             _log = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
                 .WriteTo.TestOutput(output, Events.LogEventLevel.Verbose)
@@ -28,18 +28,18 @@ namespace Serilog.Sinks.XUnit.Tests
             // Check the test output window. You should see the above message.
         }
 
-        public Task InitializeAsync()
+        public ValueTask InitializeAsync()
         {
             _log.Information("Sample test initialize async called.");
             // Check the test output window. You should see the above message.
-            return Task.CompletedTask;
+            return default;
         }
 
-        public Task DisposeAsync()
+        public ValueTask DisposeAsync()
         {
             _log.Information("Sample test dispose async called.");
             // Check the test output window. You should see the above message.
-            return Task.CompletedTask;
+            return default;
         }
 
         [Fact]

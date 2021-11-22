@@ -27,16 +27,27 @@ steps:
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
-    feedsToUse: 'select'
+    feedsToUse: config
+    nugetConfigPath: NuGet.config
     verbosityRestore: $(verbosity)
 
 - task: DotNetCoreCLI@2
   displayName: 'Run Unit Tests'
+  enabled: false
   condition: succeeded()
   inputs:
     command: test
     projects: 'test/**/*.csproj'
     arguments: '--configuration $(BuildConfiguration) --verbosity $(verbosity) --filter "Category!=Sample" --collect "Code Coverage" --settings "test/Serilog.Sinks.XUnit.Tests/CodeCoverage.runsettings"'
+    publishTestResults: true
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit Tests'
+  condition: succeeded()
+  inputs:
+    command: run
+    projects: 'test/**/*.csproj'
+    arguments: '--configuration $(BuildConfiguration) --framework netcoreapp3.1 --verbosity $(verbosity)'
     publishTestResults: true
 
 - task: DotNetCoreCLI@2

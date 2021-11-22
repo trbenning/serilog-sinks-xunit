@@ -7,7 +7,7 @@ namespace Serilog
     using Formatting;
     using Formatting.Display;
     using Sinks.XUnit;
-    using Xunit.Abstractions;
+    using Xunit.v3;
 
     /// <summary>
     /// Adds the WriteTo.TestOutput() extension method to <see cref="LoggerConfiguration"/>.
@@ -17,10 +17,10 @@ namespace Serilog
         internal const string DefaultConsoleOutputTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}";
 
         /// <summary>
-        /// Writes log events to <see cref="ITestOutputHelper"/>.
+        /// Writes log events to <see cref="_ITestOutputHelper"/>.
         /// </summary>
         /// <param name="sinkConfiguration">Logger sink configuration.</param>
-        /// <param name="messageSink">The <see cref="IMessageSink"/> that will be written to.</param>
+        /// <param name="messageSink">The <see cref="_IMessageSink"/> that will be written to.</param>
         /// <param name="restrictedToMinimumLevel">The minimum level for
         /// events passed through the sink. Ignored when <paramref name="levelSwitch"/> is specified.</param>
         /// <param name="outputTemplate">A message template describing the format used to write to the sink.
@@ -30,7 +30,7 @@ namespace Serilog
         /// <returns>Configuration object allowing method chaining.</returns>
         public static LoggerConfiguration TestOutput(
             this LoggerSinkConfiguration sinkConfiguration,
-            IMessageSink messageSink,
+            _IMessageSink messageSink,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             string outputTemplate = DefaultConsoleOutputTemplate,
             IFormatProvider formatProvider = null,
@@ -45,10 +45,10 @@ namespace Serilog
         }
 
         /// <summary>
-        /// Writes log events to <see cref="ITestOutputHelper"/>.
+        /// Writes log events to <see cref="_ITestOutputHelper"/>.
         /// </summary>
         /// <param name="sinkConfiguration">Logger sink configuration.</param>
-        /// <param name="messageSink">The <see cref="IMessageSink"/> that will be written to.</param>
+        /// <param name="messageSink">The <see cref="_IMessageSink"/> that will be written to.</param>
         /// <param name="formatter">Controls the rendering of log events into text, for example to log JSON. To
         /// control plain text formatting, use the overload that accepts an output template.</param>
         /// <param name="restrictedToMinimumLevel">The minimum level for
@@ -58,7 +58,7 @@ namespace Serilog
         /// <returns>Configuration object allowing method chaining.</returns>
         public static LoggerConfiguration TestOutput(
             this LoggerSinkConfiguration sinkConfiguration,
-            IMessageSink messageSink,
+            _IMessageSink messageSink,
             ITextFormatter formatter,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             LoggingLevelSwitch levelSwitch = null)
@@ -70,10 +70,10 @@ namespace Serilog
         }
 
         /// <summary>
-        /// Writes log events to <see cref="ITestOutputHelper"/>.
+        /// Writes log events to <see cref="_ITestOutputHelper"/>.
         /// </summary>
         /// <param name="sinkConfiguration">Logger sink configuration.</param>
-        /// <param name="testOutputHelper">The <see cref="ITestOutputHelper"/> that will be written to.</param>
+        /// <param name="testOutputHelper">The <see cref="_ITestOutputHelper"/> that will be written to.</param>
         /// <param name="restrictedToMinimumLevel">The minimum level for
         /// events passed through the sink. Ignored when <paramref name="levelSwitch"/> is specified.</param>
         /// <param name="outputTemplate">A message template describing the format used to write to the sink.
@@ -83,7 +83,7 @@ namespace Serilog
         /// <returns>Configuration object allowing method chaining.</returns>
         public static LoggerConfiguration TestOutput(
             this LoggerSinkConfiguration sinkConfiguration,
-            ITestOutputHelper testOutputHelper,
+            _ITestOutputHelper testOutputHelper,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             string outputTemplate = DefaultConsoleOutputTemplate,
             IFormatProvider formatProvider = null,
@@ -98,10 +98,10 @@ namespace Serilog
         }
 
         /// <summary>
-        /// Writes log events to <see cref="ITestOutputHelper"/>.
+        /// Writes log events to <see cref="_ITestOutputHelper"/>.
         /// </summary>
         /// <param name="sinkConfiguration">Logger sink configuration.</param>
-        /// <param name="testOutputHelper">The <see cref="ITestOutputHelper"/> that will be written to.</param>
+        /// <param name="testOutputHelper">The <see cref="_ITestOutputHelper"/> that will be written to.</param>
         /// <param name="formatter">Controls the rendering of log events into text, for example to log JSON. To
         /// control plain text formatting, use the overload that accepts an output template.</param>
         /// <param name="restrictedToMinimumLevel">The minimum level for
@@ -111,7 +111,7 @@ namespace Serilog
         /// <returns>Configuration object allowing method chaining.</returns>
         public static LoggerConfiguration TestOutput(
             this LoggerSinkConfiguration sinkConfiguration,
-            ITestOutputHelper testOutputHelper,
+            _ITestOutputHelper testOutputHelper,
             ITextFormatter formatter,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             LoggingLevelSwitch levelSwitch = null)
