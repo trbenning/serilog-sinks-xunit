@@ -21,7 +21,7 @@
             const string message = "This is a test message";
             logger.Information(message);
 
-            outputMock.Received(1).WriteLine(Arg.Is<string>(text => text.Contains($"[Information] {message}")));
+            outputMock.Received(1).WriteLine(Arg.Is<string>(text => text.Contains($" INF] {message}")));
         }
 
         [Fact]
