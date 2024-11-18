@@ -9,7 +9,7 @@
     <PackageTags>logging Serilog xUnit output ITestOutputHelper</PackageTags>
     <Copyright>Copyright © 2017 Todd Benning</Copyright>
     <Authors>Todd Benning</Authors>
-    <TargetFrameworks>net462;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
